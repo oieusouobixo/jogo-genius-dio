@@ -17,8 +17,8 @@ body {
 
 .genius {
     display: grid;
-    grid-template-areas: 'green-btn red-btn'
-    'yellow-btn blue-btn';
+    grid-template-areas: 'ggg rrr'
+    'yyy bbb';
     grid-gap: 25px;
     border: 25px solid #ffffff;
     background-color: #ffffff;
@@ -28,25 +28,25 @@ body {
 }
 
 .blue-btn {
-    grid-area: blue-btn;
+    grid-area: bbb;
     background-color: blue;
     border-bottom-right-radius: 100%;
 }
 
 .green-btn {
-    grid-area: green-btn;
+    grid-area: ggg;
     background-color: green;
     border-top-left-radius: 100%;
 }
 
 .red-btn {
-    grid-area: red-btn;
+    grid-area: rrr;
     background-color: red;
     border-top-right-radius: 100%;
 }
 
 .yellow-btn {
-    grid-area: yellow-btn;
+    grid-area: yyy;
     background-color: yellow;
     border-bottom-left-radius: 100%;
 }

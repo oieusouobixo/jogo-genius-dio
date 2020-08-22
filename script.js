@@ -14,7 +14,7 @@ const BLUE = document.querySelector('.blue-btn');
 
 //create random order of colors
 let shuffleOrder = () => {
-    let randomColor = Math.floor(Math.random * 4);
+    let randomColor = Math.floor(Math.random() * 4);
     order[order.length] = randomColor;
     clickedOrder = [];
 
@@ -32,7 +32,7 @@ let lightColor = (element, number) => {
     }, number - 250);
     setTimeout(() => {
         element.classList.remove('selected');
-    })
+    });
 }
 
 //check click order with correct sequence
@@ -99,10 +99,5 @@ GREEN.onclick = () => click(0);
 RED.onclick = () => click(1);
 YELLOW.onclick = () => click(2);
 BLUE.onclick = () => click(3);
-
-/* GREEN.addEventListener('click', click(0));
-RED.addEventListener('click', click(1));
-YELLOW.addEventListener('click', click(2));
-BLUE.addEventListener('click', click(3)); */
 
 playGame();
