@@ -1,6 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    background-color: rgb(208, 255, 239);
+    background-color: rgb(104, 132, 120);
 }
 
 .main-game {
@@ -9,4 +13,40 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.genius {
+    display: grid;
+    grid-template-areas: 'green-btn red-btn'
+    'yellow-btn blue-btn';
+    grid-gap: 25px;
+    border: 25px solid #ffffff;
+    background-color: #ffffff;
+    border-radius: 100%;
+    width: 600px;
+    height: 600px;
+}
+
+.blue-btn {
+    grid-area: blue-btn;
+    background-color: blue;
+    border-bottom-right-radius: 100%;
+}
+
+.green-btn {
+    grid-area: green-btn;
+    background-color: green;
+    border-top-left-radius: 100%;
+}
+
+.red-btn {
+    grid-area: red-btn;
+    background-color: red;
+    border-top-right-radius: 100%;
+}
+
+.yellow-btn {
+    grid-area: yellow-btn;
+    background-color: yellow;
+    border-bottom-left-radius: 100%;
 }
