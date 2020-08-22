@@ -7,10 +7,10 @@ let score = 0;
 //2 = yellow
 //3 = blue
 
-const BLUE = document.querySelector('.blue-btn');
-const RED = document.querySelector('.red-btn');
 const GREEN = document.querySelector('.green-btn');
+const RED = document.querySelector('.red-btn');
 const YELLOW = document.querySelector('.yellow-btn');
+const BLUE = document.querySelector('.blue-btn');
 
 //create random order of colors
 let shuffleOrder = () => {
@@ -29,7 +29,7 @@ let lightColor = (element, number) => {
     number = number * 500;
     setTimeout(() => {
         element.classList.add('selected');
-    }, time - 250);
+    }, number - 250);
     setTimeout(() => {
         element.classList.remove('selected');
     })
@@ -39,12 +39,12 @@ let lightColor = (element, number) => {
 let checkOrder = () => {
     for (let i in clickedOrder) {
         if (clickedOrder[i] != order[i]) {
-            lose();
+            gameOver();
             break;
         }
     }
     if (clickedOrder.length == order.length) {
-        alert(`total points: ${score}\nyou got it! starting next level`);
+        alert(`total score: ${score}\nyou got it! starting next level`);
         nextLevel();
     }
 }
@@ -56,7 +56,53 @@ let click = (color) => {
 
     setTimeout(() => {
         createColorElement(color).classList.remove('selected');
-    })
-
-    checkOrder();
+        checkOrder();
+    }, 250);
 }
+
+//function that returns a color
+let createColorElement = (color) => {
+    if (color == 0) {
+        return GREEN;
+    } else if (color == 1) {
+        return RED;
+    } else if (color == 2) {
+        return YELLOW;
+    } else if (color == 3) {
+        return BLUE;
+    }
+}
+
+//function for next level
+let nextLevel = () => {
+    score++;
+    shuffleOrder();
+}
+
+//function for game over
+let gameOver = () => {
+    alert(`total score: ${score}\nyou lost! try again!`);
+    order = [];
+    clickedOrder = [];
+
+    playGame();
+}
+
+let playGame = () => {
+    alert(`welcome to the game! click to start!`)
+    score = 0;
+
+    nextLevel();
+}
+
+GREEN.onclick = () => click(0);
+RED.onclick = () => click(1);
+YELLOW.onclick = () => click(2);
+BLUE.onclick = () => click(3);
+
+/* GREEN.addEventListener('click', click(0));
+RED.addEventListener('click', click(1));
+YELLOW.addEventListener('click', click(2));
+BLUE.addEventListener('click', click(3)); */
+
+playGame();
